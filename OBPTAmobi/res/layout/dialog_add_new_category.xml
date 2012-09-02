@@ -1,0 +1,78 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:scrollbars="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true" >
+    
+    <TextView android:id="@+id/text_view_project"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_view_project" />
+    
+    <Spinner android:id="@+id/spinner_project" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/array_project" />
+    
+    <TextView android:id="@+id/text_view_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_view_section" />
+    
+    <Spinner android:id="@+id/spinner_section" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/array_section" />
+    
+    <TextView android:id="@+id/text_view_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_view_task" />
+    
+    <Spinner android:id="@+id/spinner_task" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/array_task" />
+    
+    <CheckBox android:id="@+id/check_box_billable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/check_box_billable"/>
+    
+    <TextView android:id="@+id/text_view_hours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_view_hours" />
+    
+    <EditText android:id="@+id/edit_text_hours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned" />
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+        <Button android:id="@+id/button_save"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/button_save" />
+    
+	    <Button android:id="@+id/button_cancel"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/button_cancel" />
+        
+    </LinearLayout>    
+</LinearLayout>
+</ScrollView>

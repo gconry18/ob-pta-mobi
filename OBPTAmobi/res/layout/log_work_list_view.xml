@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="left"
+    android:layout_weight="4" >
+		<TextView
+			android:id="@+id/label_long_category"
+			android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall" />
+		<TextView
+			android:id="@+id/label_short_category"
+			android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium" />
+	</LinearLayout>
+	
+    
+    <View
+         android:layout_width="2dp"
+         android:layout_height="fill_parent"
+         android:background="@color/ob_green" />
+	
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+   	android:layout_weight="1" >
+		<TextView
+			android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:text="@string/label_hours"
+			android:textAppearance="?android:attr/textAppearanceSmall" />
+		<EditText
+			android:id="@+id/label_hours"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:inputType="numberDecimal" />
+	</LinearLayout>
+</LinearLayout>

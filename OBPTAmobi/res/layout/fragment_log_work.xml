@@ -1,14 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/label_date_worked"
-        android:layout_width="wrap_content"
+    <View
+         android:layout_width="match_parent"
+         android:layout_height="2dp"
+         android:background="@color/ob_green" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_date_worked"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:orientation="vertical"
+        android:padding="5dp" >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+             >
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/label_date_worked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/label_date_worked"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/label_weekday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/label_weekday"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/button_date_worked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right" />
+        </LinearLayout>
+
+        <View
+         android:layout_width="match_parent"
+         android:layout_height="2dp"
+         android:background="@color/ob_green" />
+        
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:divider="@color/ob_green"
+            android:dividerHeight="1dp"
+            android:scrollbars="none" >
+        </ListView>
+        
+        <View
+         android:layout_width="match_parent"
+         android:layout_height="2dp"
+         android:background="@color/ob_green" />
+    </LinearLayout>
+
+    <Space
+		    android:layout_width="match_parent"
+            android:layout_height="0dp"
+		    android:layout_weight="1"
+		    />   
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_new_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_new_category"/>
+
+        <TextView
+            android:id="@+id/label_log_total"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/ob_green"
+            android:gravity="center"
+            android:text="@string/label_log_total"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+</LinearLayout>

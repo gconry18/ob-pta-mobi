@@ -1,12 +1,63 @@
 <resources>
 
-    <string name="app_name">OBPTAmobi</string>
-    <string name="title_section3">Report</string>
-    <string name="title_section2">Log Work</string>
-    <string name="title_section1">Summary</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_signout">Sign Out</string>
-    <string name="title_activity_pta">OBPTA.mobi</string>
-    <string name="label_date_worked">Date Worked</string>
+    <!-- Application -->
+    <string name="app_name">Mobile PTA</string>
 
+    <!-- MainActivity -->
+    <string name="title_activity_main">PTA Mobile</string>
+    
+    <!-- MainFragmentActivity -->
+    <string name="title_activity_main_fragment">Mobile PTA</string>
+    <string name="title_report_fragment">Report</string>
+    <string name="title_log_work_fragment">Log Work</string>
+    <string name="title_summary_fragment">Summary</string>
+    <string name="menu_copy_from_previous">Copy from previous day</string>
+    <string name="menu_save_and_load">Save and load next day</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_reset">Reset</string>
+    <string name="menu_show_hidden">Show hidden</string>
+    <string name="menu_signout">Sign out</string>
+    
+    <!-- SignInActivity -->
+    <string name="title_activity_sign_in">Sign In</string>
+    <string name="text_view_username">Username:</string>
+    <string name="text_view_username_domain">openbox\\</string>
+    <string name="text_view_password">Password:</string>
+    <string name="hint_username">Domain\\Username</string>
+    <string name="hint_password">Password</string>
+    <string name="check_box_remember">Remember</string>
+    <string name="check_box_auto_sign_in">Sign in automatically</string>
+    <string name="button_sign_in">Sign in</string>
+    <string name="button_cancel">Cancel</string>
+    
+    <!-- LogWorkFragment -->
+    <string name="label_date_worked">Date Worked</string>
+    <string name="label_weekday">(weekday)</string>
+    <string name="label_hours">Hours:</string>
+    <string name="label_log_total">Total Hours:</string>
+
+    <!-- SummaryFragment -->
+    <string name="button_new_category">New Category</string>
+
+    <!-- AddNewCategoryDialogFragment -->
+    <string name="title_new_category">New Category</string>
+    <string name="text_view_project">Project:</string>
+    <string name="text_view_section">Section:</string>
+    <string name="text_view_task">Task:</string>
+    <string name="text_view_hours">Hours:</string>
+    <string name="check_box_billable">Billable</string>
+    <string name="button_save">Save</string>
+	<string-array name="array_project">
+        <item>OB: Admin</item>
+        <item>OB: Leave</item>
+    </string-array>
+    <string-array name="array_section">
+        <item>Section 1</item>
+        <item>Section 2</item>
+    </string-array>
+    <string-array name="array_task">
+        <item>Task 1</item>
+        <item>Task 2</item>
+    </string-array>
+    
 </resources>
