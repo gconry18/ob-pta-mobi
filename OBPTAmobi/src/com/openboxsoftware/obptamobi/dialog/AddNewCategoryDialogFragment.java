@@ -26,7 +26,7 @@ public class AddNewCategoryDialogFragment extends DialogFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		View view = inflater.inflate(R.layout.fragment_add_new_category, container, false);
+		View view = inflater.inflate(R.layout.dialog_add_new_category, container, false);
 		
 		// Add events to the buttons
 		Button saveButton = (Button)view.findViewById(R.id.button_save);

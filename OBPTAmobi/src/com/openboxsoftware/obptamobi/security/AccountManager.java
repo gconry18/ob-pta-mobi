@@ -9,7 +9,7 @@ public class AccountManager
 	private static final String KEY_USERNAME = "Username";
 	private static final String KEY_PASSWORD = "Password";
 	
-	private Context context;
+	private final Context context;
 	private static AccountManager instance;
 	
 	public static AccountManager get(Context context) 
@@ -52,18 +52,30 @@ public class AccountManager
 		String username = settings.getString(KEY_USERNAME, null);
 		String passwordHash = settings.getString(KEY_PASSWORD, null);
 		
+		// If we cannot find the username or password we can't do much
+		if(username == null || passwordHash == null) {
+			return null;
+		}
+		
 		// TODO: Decrypt here
 		String password = passwordHash;
 		
 		Account account = new Account(username);
 		account.setPassword(password);
 		
-		return null;
+		return account;
 	}
 	
 	public void removeAccount() 
 	{
+		// Get private shared preferences
+		SharedPreferences settings = context.getSharedPreferences(PREFS_ACCOUNT_DATA, Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = settings.edit();
 		
+		// Remove account details
+		editor.remove(KEY_USERNAME);
+		editor.remove(KEY_PASSWORD);
+		editor.commit();
 	}
 	
 	public String getPassword(Account account) 

@@ -22,16 +22,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter
     @Override
     public Fragment getItem(int i) 
     {
-    	Fragment fragment;
-        
     	switch(i) 
     	{
-    		case 0 : fragment = new SummaryFragment(); break;
-    		case 1 : fragment = new LogWorkFragment(); break;
-    		default : fragment = new SummaryFragment();
+    		case 0 : return new SummaryFragment();
+    		case 1 : return new LogWorkFragment(); 
     	}
 
-        return fragment;
+        return null;
     }
 
     @Override
@@ -45,9 +42,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter
     {
         switch (position) 
         {
-            case 0: return context.getString(R.string.title_section1).toUpperCase();
-            case 1: return context.getString(R.string.title_section2).toUpperCase();
-            case 2: return context.getString(R.string.title_section3).toUpperCase();
+            case 0: return context.getString(R.string.title_summary_fragment).toUpperCase();
+            case 1: return context.getString(R.string.title_log_work_fragment).toUpperCase();
         }
         
         return null;

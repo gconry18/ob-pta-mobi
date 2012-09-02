@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.holder.ListViewHolder;
-import com.openboxsoftware.obptamobi.listener.OnLogHoursChangedListener;
+import com.openboxsoftware.obptamobi.listener.internal.OnLogHoursChangedListener;
 
 public class LogDataAdapter extends BaseAdapter{
 
@@ -56,7 +56,7 @@ public class LogDataAdapter extends BaseAdapter{
 		
 		if (view == null)
 		{
-			view = inflater.inflate(R.layout.logwork_listview, null);
+			view = inflater.inflate(R.layout.log_work_list_view, null);
 			holder = new ListViewHolder();
 			holder.longCategory = (TextView) view.findViewById(R.id.label_long_category);
 			holder.shortCategory = (TextView) view.findViewById(R.id.label_short_category);
