@@ -56,7 +56,7 @@ public class LogWorkFragment extends Fragment
 		
 		Button dateWorkedButton = (Button)view.findViewById(R.id.button_date_worked);
 		dateWorkedButton.setText(c.get(Calendar.DAY_OF_MONTH) + "/" 
-								+ c.get(Calendar.MONTH) 
+								+ (c.get(Calendar.MONTH)+1) 
 								+ "/" + c.get(Calendar.YEAR));
 		dateWorkedButton.setOnClickListener(new OnClickListener() {
 			
@@ -65,7 +65,7 @@ public class LogWorkFragment extends Fragment
 			}
 		});
 		
-		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday",
+		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
 		        "Friday", "Saturday" };
 		
 		TextView weekday = (TextView)view.findViewById(R.id.label_weekday);
