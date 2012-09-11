@@ -21,6 +21,7 @@ import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.adapter.LogDataAdapter;
 import com.openboxsoftware.obptamobi.dialog.AddNewCategoryDialogFragment;
 import com.openboxsoftware.obptamobi.dialog.DatePickerDialogFragment;
+import com.openboxsoftware.obptamobi.util.Date;
 
 public class LogWorkFragment extends Fragment
 {
@@ -55,9 +56,9 @@ public class LogWorkFragment extends Fragment
 		});
 		
 		Button dateWorkedButton = (Button)view.findViewById(R.id.button_date_worked);
-		dateWorkedButton.setText(c.get(Calendar.DAY_OF_MONTH) + "/" 
-								+ (c.get(Calendar.MONTH)+1) 
-								+ "/" + c.get(Calendar.YEAR));
+		dateWorkedButton.setText(Date.getDay() + "/" 
+								+ Date.getMonth() 
+								+ "/" + Date.getYear());
 		dateWorkedButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
@@ -65,11 +66,8 @@ public class LogWorkFragment extends Fragment
 			}
 		});
 		
-		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-		        "Friday", "Saturday" };
-		
 		TextView weekday = (TextView)view.findViewById(R.id.label_weekday);
-		weekday.setText(strDays[c.get(Calendar.DAY_OF_WEEK)-1]);
+		weekday.setText(Date.getDayString());
 		
 		
 		ListView lv = (ListView)view.findViewById(R.id.list_view);

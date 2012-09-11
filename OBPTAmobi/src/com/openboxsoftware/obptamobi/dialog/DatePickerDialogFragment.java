@@ -1,9 +1,5 @@
 package com.openboxsoftware.obptamobi.dialog;
 
-import java.util.Calendar;
-
-import com.openboxsoftware.obptamobi.R;
-
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -12,17 +8,19 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-public class DatePickerDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+import com.openboxsoftware.obptamobi.R;
+import com.openboxsoftware.obptamobi.util.Date;
 
-	private static Calendar c = Calendar.getInstance();
+public class DatePickerDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) 
 	{
-		int year = c.get(Calendar.YEAR);
-		int month = c.get(Calendar.MONTH);
-		int day = c.get(Calendar.DAY_OF_MONTH);
+		int year = Date.getYear();
+		int month = Date.getMonth();
+		int day = Date.getDay();
 		
-		DatePickerDialog dpd = new DatePickerDialog(getActivity(), this, year, month, day);
+		DatePickerDialog dpd = new DatePickerDialog(getActivity(), this, year, month-1, day);
 		dpd.setTitle("Date Worked");
 		
 		return dpd;
@@ -33,12 +31,9 @@ public class DatePickerDialogFragment extends DialogFragment implements DatePick
 		Button dateWorkedButton = (Button)getActivity().findViewById(R.id.button_date_worked);
 		dateWorkedButton.setText(day + "/" + (month+1) + "/" + year);
 		
-		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-		        "Friday", "Saturday" };
-		
-		c.set(year, month, day);
+		Date.setDate(year, month, day);
 		
 		TextView weekday = (TextView)getActivity().findViewById(R.id.label_weekday);
-		weekday.setText(strDays[c.get(Calendar.DAY_OF_WEEK) -1]);
+		weekday.setText(Date.getDayString());
     } 
 }
