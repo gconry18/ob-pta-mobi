@@ -1,7 +1,6 @@
 package com.openboxsoftware.obptamobi.fragment;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import android.os.Bundle;
@@ -44,8 +43,6 @@ public class LogWorkFragment extends Fragment
     {
         View view;
     	view = inflater.inflate(R.layout.fragment_log_work, container, false);
-
-		final Calendar c = Calendar.getInstance();
     	
     	Button newCategoryButton = (Button)view.findViewById(R.id.button_new_category);
 		newCategoryButton.setOnClickListener(new OnClickListener() {
@@ -54,20 +51,20 @@ public class LogWorkFragment extends Fragment
 				showAddCategoryDialog();
 			}
 		});
+
+		TextView weekday = (TextView)view.findViewById(R.id.label_weekday);
+		weekday.setText(Date.getDayString());
 		
 		Button dateWorkedButton = (Button)view.findViewById(R.id.button_date_worked);
-		dateWorkedButton.setText(Date.getDay() + "/" 
-								+ Date.getMonth() 
-								+ "/" + Date.getYear());
-		dateWorkedButton.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View view) {
+		dateWorkedButton.setText(Date.getDay() + "/" + Date.getMonth() + "/" + Date.getYear());
+		dateWorkedButton.setOnClickListener(new OnClickListener() 
+		{
+			public void onClick(View view) 
+			{
 				showDatePickerDialog();
 			}
 		});
 		
-		TextView weekday = (TextView)view.findViewById(R.id.label_weekday);
-		weekday.setText(Date.getDayString());
 		
 		
 		ListView lv = (ListView)view.findViewById(R.id.list_view);
