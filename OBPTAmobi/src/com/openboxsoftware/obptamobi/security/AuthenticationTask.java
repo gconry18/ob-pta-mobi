@@ -7,7 +7,7 @@ import android.os.AsyncTask;
 import com.openboxsoftware.obptamobi.listener.OnFailureListener;
 import com.openboxsoftware.obptamobi.listener.OnSuccessListener;
 
-public class AuthorizationTask extends AsyncTask<Account, Void, Boolean> 
+public class AuthenticationTask extends AsyncTask<Account, Void, AuthenticationResponse> 
 {	
 	private static class ListenerInfo 
 	{
@@ -19,7 +19,7 @@ public class AuthorizationTask extends AsyncTask<Account, Void, Boolean>
 	private ListenerInfo mListenerInfo;
 	private ProgressDialog mProgressDialog;
 	
-	public AuthorizationTask(Context context)
+	public AuthenticationTask(Context context)
 	{
 		mContext = context;
 		
@@ -36,14 +36,14 @@ public class AuthorizationTask extends AsyncTask<Account, Void, Boolean>
 	}
 	
 	@Override
-	protected Boolean doInBackground(Account... accounts) 
+	protected AuthenticationResponse doInBackground(Account... accounts) 
 	{
 		AccountManager am = AccountManager.get(mContext);
 		Account account = accounts[0];
 		
 		if(account == null)
 		{
-			return false;
+			return new AuthenticationResponse(false, "An account was not found.");
 		}
 		
 		String username = account.getUsername();
@@ -61,31 +61,31 @@ public class AuthorizationTask extends AsyncTask<Account, Void, Boolean>
 		
 		if(username.equals("openbox\\zblazic") && password.equals("password"))
 		{
-			return true;
+			return new AuthenticationResponse(true, "Signed in successfully.");
 		}
 		
-		return false;
+		return new AuthenticationResponse(false, "Username or password incorrect.");
 	}
 	
 	@Override
-	protected void onPostExecute(Boolean result) 
+	protected void onPostExecute(AuthenticationResponse result) 
 	{
 		super.onPostExecute(result);
 		
 		ListenerInfo li = mListenerInfo;
 		
-		if(result)
+		if(result.isSuccessful())
 		{
 			if(li != null && li.mOnSuccessListener != null)
 			{
-				li.mOnSuccessListener.onSuccess();
+				li.mOnSuccessListener.onSuccess(result.getMessage());
 			}
 		}
 		else
 		{
 			if(li != null && li.mOnFailureListener != null)
 			{
-				li.mOnFailureListener.onFailure();
+				li.mOnFailureListener.onFailure(result.getMessage());
 			}
 		}
 		

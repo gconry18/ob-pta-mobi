@@ -16,7 +16,7 @@ import com.openboxsoftware.obptamobi.listener.OnSuccessListener;
 import com.openboxsoftware.obptamobi.preference.SignInPreferenceManager;
 import com.openboxsoftware.obptamobi.security.Account;
 import com.openboxsoftware.obptamobi.security.AccountManager;
-import com.openboxsoftware.obptamobi.security.AuthorizationTask;
+import com.openboxsoftware.obptamobi.security.AuthenticationTask;
 
 public class MainFragmentActivity extends FragmentActivity implements OnSuccessListener, OnFailureListener
 {
@@ -44,7 +44,7 @@ public class MainFragmentActivity extends FragmentActivity implements OnSuccessL
     		Account account = am.getAccount();
     		
     		// Do authorization
-    		AuthorizationTask at = new AuthorizationTask(this);
+    		AuthenticationTask at = new AuthenticationTask(this);
     		at.setOnSuccessListener(this);
     		at.setOnFailureListener(this);
     		at.execute(account);
@@ -79,13 +79,17 @@ public class MainFragmentActivity extends FragmentActivity implements OnSuccessL
         return true;
     }
 
-	public void onSuccess() 
+	public void onSuccess(String message) 
 	{
-		Toast.makeText(this, "Signed in successfully.", Toast.LENGTH_SHORT).show();
+		// We don't want to sign in again
+		Intent intent = getIntent();
+        intent.putExtra(INTENT_AUTO_SIGN_IN, false);
+        
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}
 	
-	public void onFailure() 
+	public void onFailure(String message) 
 	{
-		Toast.makeText(this, "Sign in failed.", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}
 }

@@ -10,7 +10,7 @@ import com.openboxsoftware.obptamobi.R;
 import com.openboxsoftware.obptamobi.activity.SignInActivity;
 import com.openboxsoftware.obptamobi.security.Account;
 import com.openboxsoftware.obptamobi.security.AccountManager;
-import com.openboxsoftware.obptamobi.security.AuthorizationTask;
+import com.openboxsoftware.obptamobi.security.AuthenticationTask;
 
 public class OnSignInClickListener implements OnClickListener
 {
@@ -38,7 +38,7 @@ public class OnSignInClickListener implements OnClickListener
 		am.setPassword(account, password);
 		
 		// Do authorization
-		AuthorizationTask at = new AuthorizationTask(mContext);
+		AuthenticationTask at = new AuthenticationTask(mContext);
 		at.setOnSuccessListener(((SignInActivity)mContext));
 		at.setOnFailureListener(((SignInActivity)mContext));
 		at.execute(account);

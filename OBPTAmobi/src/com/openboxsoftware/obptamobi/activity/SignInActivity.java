@@ -79,7 +79,7 @@ public class SignInActivity extends Activity implements OnSuccessListener, OnFai
 		passwordEditText.addTextChangedListener(new OnEditTextChangedListener());
 	}
 
-	public void onSuccess() 
+	public void onSuccess(String message) 
 	{
 		// Get the preference manager
 		SignInPreferenceManager pm = SignInPreferenceManager.get(this);
@@ -161,12 +161,12 @@ public class SignInActivity extends Activity implements OnSuccessListener, OnFai
 		startActivity(intent);
 		finish();
 		
-		Toast.makeText(this, "Signed in successfully.", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}
 
-	public void onFailure()
+	public void onFailure(String message)
 	{
-		Toast.makeText(this, "Sign in failed.", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}
 	
 	private class OnEditTextChangedListener implements TextWatcher 

@@ -2,5 +2,5 @@ package com.openboxsoftware.obptamobi.listener;
 
 public interface OnFailureListener {
 
-	void onFailure();
+	void onFailure(String message);
 }

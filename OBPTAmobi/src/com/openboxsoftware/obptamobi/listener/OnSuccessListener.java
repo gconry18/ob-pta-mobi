@@ -2,5 +2,5 @@ package com.openboxsoftware.obptamobi.listener;
 
 public interface OnSuccessListener {
 
-	void onSuccess();
+	void onSuccess(String message);
 }
