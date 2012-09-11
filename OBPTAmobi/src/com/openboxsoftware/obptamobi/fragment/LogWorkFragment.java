@@ -80,10 +80,16 @@ public class LogWorkFragment extends Fragment
 		cat.add("OB:Admin - Training - Training\nnon-Project related training");
 		cat.add("OB:Leave - Admin - Other Leave\nStudy Leave");
 		cat.add("OB:Leave - Admin - Public Holidays\nAll Public Holidays");
+		cat.add("OB:Leave - Admin - Public Holidays\nNO ONE CARES");
+		cat.add("OB:Leave - Admin - Public Holidays\nAll Public Holidays");
+		cat.add("OB:Leave - Admin - Public Holidays\nNO ONE CARES");
 		List<Float> hrs = new ArrayList<Float>();
 		hrs.add(1.2f);
 		hrs.add(6f);
 		hrs.add(0f);
+		hrs.add(3f);
+		hrs.add(0f);
+		hrs.add(3f);
 		
 		LogDataAdapter adapter = new LogDataAdapter(getActivity(), cat, hrs);
 		
